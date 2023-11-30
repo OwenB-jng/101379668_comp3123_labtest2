@@ -3,6 +3,7 @@ import axios from 'axios';
 import './WeatherComponent.css';
 
 const WeatherComponent = () => {
+
   const [weatherInfo, setWeatherInfo] = useState(null);
   const [city, setCity] = useState('Toronto');
   const [citySearch, setCitySearch] = useState('');
@@ -35,14 +36,14 @@ const WeatherComponent = () => {
           value={citySearch}
           onChange={(e) => setCitySearch(e.target.value)}
         />
-        <button onClick={handleSearch}>Search</button>
+        <button onClick={handleSearch}>Search for City</button>
       </div>
       {weatherInfo && (
         <div className="weather-info">
           <h2>{weatherInfo.name}, {weatherInfo.sys.country}</h2>
           <img
             src={`http://openweathermap.org/img/wn/${weatherInfo.weather[0].icon}@2x.png`}
-            alt="Weather Icon"
+            alt="Current Weather Display Icon"
           />
           <h3>Temperatures:</h3>
           <p>Temperature in Kelvin: {(weatherInfo.main.temp).toFixed(2)}°K</p>
